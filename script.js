@@ -20,6 +20,10 @@ bookContainer.addEventListener('click', (e) => {
             clickedDiv.innerText = "Not Read";
         }
     }
+
+    if(e.target.matches("button.remove-button")) { 
+        bookContainer.removeChild(e.target.closest(".books"));
+    }
 })
 
 closeButton.addEventListener('click', () => {
@@ -99,10 +103,15 @@ function sort() {
                 isRead.innerText = "Not Read";
             }
 
+            let removeButton = document.createElement('button');
+            removeButton.classList.add('remove-button');
+            removeButton.innerText = "Remove Book"
+
             newBook.appendChild(bookTitle);
             newBook.appendChild(bookAuthor);
             newBook.appendChild(pagesRead);
             newBook.appendChild(isRead);
+            newBook.appendChild(removeButton);
 
         }
         else{
